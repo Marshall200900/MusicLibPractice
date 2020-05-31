@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MusicLibPractice.Models.songs>
+
+@{
+    ViewBag.Title = "Table";
+}
+
+<h2>Table</h2>
+
+
+<table class="table table-striped">
+    <tr class="info">
+
+      @foreach(var col in ViewBag.columns)
+      {
+          <td>@col.Text</td>
+      }
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.song_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.song_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.authors.author_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.countries.country_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.formats.format_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genres.genre_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paths.path_name)
+            </td>
+            <td>@item.albums.First().album_name</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duration)
+            </td>
+
+        </tr>
+    }
+
+</table>

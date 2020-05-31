@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MusicLibPractice.Models.songs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Songs</h2>
+
+<a type="button" style="margin: 0px 0px 20px;" href="@Url.Action("Create", "Songs")" class="btn btn-info">Create</a>
+
+<table class="table table-striped">
+    <tr class="info">
+
+        <th>
+            <span>Name</span>
+        </th>
+        <th>
+            <span>Date</span>
+        </th>
+        <th>
+            <span>Author</span>
+        </th>
+        <th>
+            <span>Country</span>
+        </th>
+        <th>
+            <span>Format</span>
+        </th>
+        <th>
+            <span>Genre</span>
+        </th>
+        <th>
+            <span>Paths</span>
+        </th>
+        <th>
+            <span>Albums</span>
+        </th>
+        <th>
+            <span>Duration</span>
+        </th>
+        <th>
+
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr class="clickable-row data-href='https://metanit.com/sharp/mvc/6.4.php'">
+
+        <td>
+            @Html.DisplayFor(modelItem => item.song_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.song_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.authors.author_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.countries.country_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.formats.format_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.genres.genre_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paths.path_name)
+        </td>
+        <td>@item.albums.First().album_name</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td align="right">
+            <a type="button" href="@Url.Action("Edit", new { id = item.song_id })" class="btn btn-info">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a type="button" href="@Url.Action("Delete", new { id = item.song_id })" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </td>
+
+    </tr>
+    }
+
+</table>

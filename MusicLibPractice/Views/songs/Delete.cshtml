@@ -1,0 +1,88 @@
+﻿@model MusicLibPractice.Models.songs
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>songs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.song_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.song_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.song_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.song_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.authors.author_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.authors.author_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.countries.country_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.countries.country_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.formats.format_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.formats.format_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genres.genre_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genres.genre_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paths.path_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paths.path_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
